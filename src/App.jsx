@@ -22,7 +22,7 @@ export default function App() {
     if (current) {
       const timer = setTimeout(() => {
         setShowOptions(true);
-      }, 2000);
+      }, 500);
 
       return () => clearTimeout(timer);
     }
@@ -76,18 +76,24 @@ export default function App() {
       <h3 className="question">{current.question}</h3>
 
       {showOptions && (
-        <div className="options">
-          {current.options.map((o, i) => (
-            <img
-              key={i}
-              src={o.img}
-              alt="option"
-              className="option-img"
-              onClick={() => selectOption(o)}
-            />
-          ))}
-        </div>
-      )}
+  <div className="options">
+    {current.options.map((o, i) => (
+      <div
+        key={i}
+        className="option-card"
+        onClick={() => selectOption(o)}
+      >
+        <img
+          src={o.img}
+          alt="option"
+          className="option-img"
+        />
+        <p className="option-text">{o.label}</p>
+      </div>
+    ))}
+  </div>
+)}
+
 
       {feedback === "correct" && (
         <div className="feedback-correct">😊 Very Good!</div>
