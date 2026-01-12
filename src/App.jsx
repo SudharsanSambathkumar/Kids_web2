@@ -1,43 +1,130 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useEffect, useState } from "react";
+import "./App.css";
+import { categories, scenarios } from "./data";
 
-function App() {
-  const [count, setCount] = useState(0);
+const correctSound = new Audio("/sounds/correct.mp3");
+const wrongSound = new Audio("/sounds/wrong.mp3");
 
-  return (
-    <div className="w-full max-w-lg mx-auto text-center p-6">
-      <div className="flex justify-center gap-4">
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img
-            src={reactLogo}
-            className="logo react"
-            alt="React logo"
-          />
-        </a>
+export default function App() {
+  const [page, setPage] = useState("home");
+  const [category, setCategory] = useState(null);
+  const [index, setIndex] = useState(0);
+  const [showOptions, setShowOptions] = useState(false);
+  const [feedback, setFeedback] = useState("");
+
+  const current = category ? scenarios[category][index] : null;
+
+  /* Show options after delay */
+  useEffect(() => {
+    setShowOptions(false);
+    setFeedback("");
+
+    if (current) {
+      const timer = setTimeout(() => {
+        setShowOptions(true);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [index, category]);
+
+  /* Option click */
+  const selectOption = (opt) => {
+    if (opt.correct) {
+      correctSound.play();
+      setFeedback("correct");
+    } else {
+      wrongSound.play();
+      setFeedback("wrong");
+    }
+  };
+
+  /* ================= HOME ================= */
+  if (page === "home") {
+    return (
+      <div className="home">
+        <h1>Choose Category</h1>
+
+        {categories.map((c) => (
+          <button
+            key={c.key}
+            className="category-btn"
+            onClick={() => {
+              setCategory(c.key);
+              setIndex(0);
+              setPage("game");
+            }}
+          >
+            {c.label}
+          </button>
+        ))}
       </div>
-      <h1 className=" text-3xl font-bold my-6">
-        Vite + React + Daisy UI
-      </h1>
-      <div className=" text-center bg-base-300 p-12">
+    );
+  }
+
+  /* ================= GAME ================= */
+  return (
+    <div className="game">
+      <h2 className="scenario-text">{current.scenario}</h2>
+
+      <img
+        src={current.character}
+        alt="character"
+        className="character-img"
+      />
+
+      <h3 className="question">{current.question}</h3>
+
+      {showOptions && (
+        <div className="options">
+          {current.options.map((o, i) => (
+            <img
+              key={i}
+              src={o.img}
+              alt="option"
+              className="option-img"
+              onClick={() => selectOption(o)}
+            />
+          ))}
+        </div>
+      )}
+
+      {feedback === "correct" && (
+        <div className="feedback-correct">😊 Very Good!</div>
+      )}
+
+      {feedback === "wrong" && (
+        <div className="feedback-wrong">❌ Try Again</div>
+      )}
+
+      {/* NAV BUTTONS */}
+      <div className="nav-buttons">
+        {/* BACK */}
         <button
-          className="btn btn-primary w-40 mx-auto mb-6"
-          onClick={() => setCount((count) => count + 1)}
+          className="back-btn"
+          disabled={index === 0}
+          onClick={() => setIndex((i) => i - 1)}
         >
-          count is {count}
+          ⬅ Back
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
+
+        {/* NEXT */}
+        <button
+          className="next-btn"
+          disabled={index === scenarios[category].length - 1}
+          onClick={() => setIndex((i) => i + 1)}
+        >
+          Next ➡
+        </button>
+
+        {/* HOME */}
+        <button
+          className="home-btn"
+          onClick={() => setPage("home")}
+        >
+           Home
+        </button>
       </div>
     </div>
   );
 }
-
-export default App;

@@ -1,3 +1,96 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 🌈 GLOBAL KID FONT */
+body {
+  font-family: "Baloo 2", cursive;
+}
+
+/* TITLE */
+.title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #ec4899;
+}
+
+/* SCORE */
+.score {
+  font-weight: 700;
+}
+
+/* QUESTION */
+.question-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+/* OPTION CARD */
+.option-bg-card {
+  height: 150px;
+  border-radius: 22px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #fff7ed;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.option-bg-card:hover {
+  transform: scale(1.05);
+}
+
+/* OVERLAY */
+.option-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+}
+
+/* OPTION TEXT */
+.option-bg-text {
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* MODAL */
+.kid-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 245, 247, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kid-modal-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.kid-img {
+  width: 160px;
+  margin-bottom: 1rem;
+}
+
+/* ANIMATION */
+.animate-bounceSlow {
+  animation: bounceSlow 2s infinite;
+}
+
+@keyframes bounceSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
