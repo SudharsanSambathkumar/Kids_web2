@@ -119,7 +119,7 @@ export const scenarios = {
       options: [
         { img: crossquick,label: "Cross anywhere quickly", correct: false },
         { img: sign, label: "Look both ways and cross safely ",correct: true },    
-        { img: closeeyes, label: "Close our eyes and run", correct: false },
+        { img: closeeyes, label: "cross in red signal", correct: false },
 
       ],
     },
@@ -132,7 +132,7 @@ export const scenarios = {
       question: "What helps Uncle eat easily?",
       options: [
         { img: bigspoon,label: "bigSpoon", correct: true },
-        { img: napkin,label: "napkin", correct: false },
+        { img: shirt,label: "shirt", correct: false },
         { img: pillow,label: "pillow", correct: false },
       ],
     },
@@ -170,7 +170,7 @@ export const scenarios = {
         { img: spoon,label: "Regular spoon",  correct: false },
         { img: curveSpoon,label: "Curved/angled spoon", correct: true },
 
-        { img: napkin,label: "napkin", correct: false },
+        { img: cupLid,label: "cup", correct: false },
       ],
     },
     
@@ -185,7 +185,7 @@ export const scenarios = {
      
         { img: spoon,label: "spoon", correct: false },
          { img: bigButtons,label: "bigbuttons",correct: true },
-        { img: napkin,label: "napkin", correct: false },
+        { img: zip,label: "zipper", correct: false },
       ],
     },
     {
