@@ -8,28 +8,72 @@ import childsp from "./assets/characters/childsp.jpg";
 import auntyto from "./assets/characters/auntyto.jpg";
 import auntyfan from "./assets/characters/auntyfan.jpg";
 import auntycup from "./assets/characters/auntycup.jpg";
+import light from "./assets/characters/light.png";
+import shirtman from "./assets/characters/shirtm.png";
+import signal from "./assets/characters/signal.png";
+import spoonChild from "./assets/characters/spoonchild.png";
+import uncle from "./assets/characters/uncle.png";
+import bowlChild from "./assets/characters/bowlchild.png";
+import child from "./assets/characters/child.png";
+import childWh from "./assets/characters/childwh.png";
+import combGirl from "./assets/characters/combgirl.png";
+import cupboard from "./assets/characters/cupboard.png";
+import door from "./assets/characters/door.png";
+import cq from "./assets/characters/cq.png";
+import h1 from "./assets/characters/h1.png";
+import wq from "./assets/characters/wq.png";
 
-
-import walkingStick from "./assets/options/walkingstick.jpg";
-import slippers from "./assets/options/slippers.png";
-import spoon from "./assets/options/spoon.png";
-import walkingFrame from "./assets/options/walkingFrame.png";
-import pillow from "./assets/options/pillow.png";
-import bottle from "./assets/options/bottle.png";
-import bigSpoon from "./assets/options/spoon.png";
-import cupLid from "./assets/options/cupLid.png";
-import napkin from "./assets/options/napkin.png";
+import walkingStick from "./assets/options/walkingstick2.png";
+import slippers from "./assets/options/slippers2.png";
+import spoon from "./assets/options/spoon2.png";
+import walkingFrame from "./assets/options/walkingFrame2.png";
+import pillow from "./assets/options/pillow2.png";
+import bottle from "./assets/options/bottle2.png";
+import bigSpoon from "./assets/options/spoon2.png";
+import cupLid from "./assets/options/cupLid2.png";
+import napkin from "./assets/options/napkin2.png";
 import velcroShirt from "./assets/options/velcroShirt.png";
-import nonSlipMat from "./assets/options/nonSlipMat.png";
-import reacher from "./assets/options/reacher.png";
-import voiceLight from "./assets/options/voiceLight.png";
+import nonSlipMat from "./assets/options/nonSlipMat2.png";
+import reacher from "./assets/options/reacher2.png";
+import t1 from "./assets/options/t1.png";
+import t2 from "./assets/options/t2.png";
+import t3 from "./assets/options/t3.png";
+import c1 from "./assets/options/c1.png";
+import w1 from "./assets/options/w1.png";
 
+import voiceLight from "./assets/options/remote1.png";
+import bigButtons from "./assets/options/bigbuttons.png";
+import bowl from "./assets/options/bowl.png";
+import comb from "./assets/options/comb.png";
+import curveSpoon from "./assets/options/curvespoon.png";
+import remote1 from "./assets/options/remote1.png";
+import remote2 from "./assets/options/remote2.png";
+import remote3 from "./assets/options/remote3.png";
+import shirtVelcro from "./assets/options/shirtvel.png";
+import sign from "./assets/options/sign.png";
+import wheelchair from "./assets/options/wheelchair.png";
+import holdwalk from "./assets/options/holdandwalk.png";
+import holdthem from "./assets/options/holdthemselves.png";
+import closeeyes from "./assets/options/closeeyes.jpeg";
+import crossquick from "./assets/options/crossquick.png";
+import bigspoon from "./assets/options/bigspoon.png";
+import bigplate from "./assets/options/bigplate.png";
+import foodwaste from "./assets/options/foodwaste.png";
+import zip from "./assets/options/zip.png";
+import shirt from "./assets/options/shirt.png";
+import simplecomb from "./assets/options/simplecomb.png";
+import autodoor from "./assets/options/autodoor.png";
+
+import icon1 from "./assets/characters/icon1.png"
+import icon2 from "./assets/characters/icon2.png"
+import icon3 from "./assets/characters/icon3.png"
+import icon4 from "./assets/characters/icon4.png"
 /* ===== CATEGORIES ===== */
 export const categories = [
-  { key: "mobility", label: "Mobility" },
-  { key: "feeding", label: "Feeding" },
-  { key: "grooming", label: "Grooming" },
-  { key: "smarthome", label: "Smart Home" },
+  { key: "mobility", label: "Mobility",img:icon1},
+  { key: "feeding", label: "Feeding",img:icon2 },
+  { key: "grooming", label: "Grooming",img:icon3 },
+  { key: "smarthome", label: "Smart Home",img:icon4 },
 ];
 
 /* ===== SCENARIOS ===== */
@@ -57,6 +101,28 @@ export const scenarios = {
 
       ],
     },
+    {
+      scenario: "A child cannot walk because of a fracture or cerebral palsy (CP)",
+      character: childWh,
+      question: "Which option helps them move safely?",
+      options: [
+        { img: wheelchair,label: "Wheelchair", correct: true },
+        { img: holdwalk, label: "Hold and walk",correct: false },    
+        { img: holdthem, label: "Carry themselves", correct: false },
+
+      ],
+    },
+    {
+      scenario: "When crossing the road",
+      character: signal,
+      question: "what should we do?",
+      options: [
+        { img: crossquick,label: "Cross anywhere quickly", correct: false },
+        { img: sign, label: "Look both ways and cross safely ",correct: true },    
+        { img: closeeyes, label: "Close our eyes and run", correct: false },
+
+      ],
+    },
   ],
 
   feeding: [
@@ -65,7 +131,7 @@ export const scenarios = {
       character: unclesp,
       question: "What helps Uncle eat easily?",
       options: [
-        { img: bigSpoon,label: "bigSpoon", correct: true },
+        { img: bigspoon,label: "bigSpoon", correct: true },
         { img: napkin,label: "napkin", correct: false },
         { img: pillow,label: "pillow", correct: false },
       ],
@@ -82,6 +148,31 @@ export const scenarios = {
         { img: napkin,label: "napkin", correct: false },
       ],
     },
+    {
+      scenario: "A child cannot scoop food because the bowl moves.",
+      character: bowlChild,
+      question: "What can help?",
+      options: [
+        { img: bowl,label: "Suction-based bowl ", correct: true },
+
+        { img: foodwaste,label: "Throw food on the floor",  correct: false },
+
+        { img: bigplate,label: "Use a big plate", correct: false },
+      ],
+    },
+    {
+      scenario: "A child has trouble scooping or eating food because their hand movements are limited. ",
+      character: spoonChild,
+      question: "What can help?",
+      options: [
+        
+
+        { img: spoon,label: "Regular spoon",  correct: false },
+        { img: curveSpoon,label: "Curved/angled spoon", correct: true },
+
+        { img: napkin,label: "napkin", correct: false },
+      ],
+    },
     
   ],
 
@@ -93,7 +184,7 @@ export const scenarios = {
       options: [
      
         { img: spoon,label: "spoon", correct: false },
-         { img: velcroShirt,label: "velcroShirt",correct: true },
+         { img: bigButtons,label: "bigbuttons",correct: true },
         { img: napkin,label: "napkin", correct: false },
       ],
     },
@@ -111,10 +202,30 @@ export const scenarios = {
       scenario: "Aunty drops towel and cannot bend.",
       character: auntyto,
       question: "What should Aunty use?",
-      options: [ { img: spoon,label: "spoon", correct: false },
-        { img: reacher, label: "reacher",correct: true },
+      options: [ { img: t1,label: "spoon", correct: false },
+        { img: t2, label: "reacher",correct: true },
        
-        { img: napkin,label: "napkin", correct: false },
+        { img: t3,label: "napkin", correct: false },
+      ],
+    },
+    {
+      scenario: "A man cannot button his shirt because his hands don’t move well.",
+      character: shirtman,
+      question: "What can help him?",
+      options: [ { img: shirtVelcro,label: "Adaptive clothing with Velcro ", correct: true },
+        { img: shirt, label: "Regular buttons",correct: false },
+       
+        { img: zip,label: "Zipper pull", correct: false },
+      ],
+    },
+    {
+      scenario: "A child cannot comb their hair because their hands don’t move well. ",
+      character: cq,
+      question: "What can help?",
+      options: [ { img: c1,label: "Hairbrush with an long handle ", correct: true },
+        { img: simplecomb, label: "Regular hairbrush",correct: false },
+       
+        { img: spoon,label: "Spoon", correct: false },
       ],
     },
   ],
@@ -127,28 +238,42 @@ export const scenarios = {
       options: [
        
         
-        { img: pillow,label: "pillow", correct: false }, { img: voiceLight,label: "remote", correct: true },{ img: spoon,label: "spoon", correct: false }
+        { img: pillow,label: "pillow", correct: false }, { img: remote2,label: "remote", correct: true },{ img: spoon,label: "spoon", correct: false }
+      ],
+    },
+    
+    {
+      scenario: "A man cannot reach the light switch to turn off the light. ",
+      character: light,
+      question: "What can help?",
+      options: [
+       
+        { img: remote2,label: "Smart home system with voice/ remote control ", correct: true },
+         { img: bowl, label: "bowl",correct: false },
+        { img: pillow,label: "Throw a ball at the switch", correct: false }
       ],
     },
     {
-      scenario: "It is very hot,Aunty cannot reach the fan switch",
-      character: auntyfan,
-      question: "What can Aunty use?",
+      scenario: "A man cannot reach the top or bottom of a cupboard.",
+      character: h1,
+      question: "What can help him access it?",
       options: [
        
-        { img: spoon,label: "spoon", correct: false },
-        { img: pillow,label: "pillow", correct: false }, { img: voiceLight, label: "remote",correct: true },
+        { img: remote3,label: "Press the lower/up-down switch to move the cupboard", correct: true },
+         { img: reacher, label: "reacher",correct: false },
+        { img: napkin,label: "napkin", correct: false }
       ],
     },
     {
-      scenario: "Aunty wants to take a cup from cabinet,Her hands are week and she cannot open the cabinet door",
-      character: auntycup,
-      question: "What can help Aunty?",
+      scenario: "A man cannot reach the door handle",
+      character: wq,
+      question: "What can help him open the door easily?",
       options: [
        
-        { img: spoon,label: spoon, correct: false },
-         { img: voiceLight, label: "remote",correct: true },
-        { img: pillow,label: "pillow", correct: false }
+        
+         { img: comb, label: "comb",correct: false },
+         { img: w1,label: "Automatic door with remote or sensor ", correct: true },
+        { img: reacher,label: "reacher", correct: false }
       ],
     },
   ],
